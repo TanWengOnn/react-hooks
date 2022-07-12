@@ -1,20 +1,27 @@
 //-------------------------useState and UseEffect-------------------------//
-// import React, { useState, useEffect } from "react";
+// Reference: https://www.youtube.com/watch?v=jQc_bTFZ5_I
+import React, { useState, useEffect } from "react";
 
-// export default function Button() {
-//   const [count, setCount] = useState(0);
+export default function Button() {
+  const [count, setCount] = useState(0);
+  const [name, setName] = useState("testing");
 
-//   // Only listen to the count state
-//   useEffect(() => {
-//     document.title = `You clicked ${count} times`;
-//   }, [count]);
+  // Only listen to the count state
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+    console.log(`You clicked ${count} times`);
+  }, [count]);
 
-//   return (
-//     <button onClick={() => setCount(count + 1)}>
-//       You clicked {count} times
-//     </button>
-//   );
-// }
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>
+        You clicked {count} times
+      </button>
+      <button onClick={() => setName("Test2")}>Name</button>
+      <p>{name}</p>
+    </div>
+  );
+}
 
 //-------------------------useRef-------------------------//
 // import React, { useRef } from "react";
@@ -32,6 +39,7 @@
 //-------------------------Mutable Variable (useState, useEffect and useRef)-------------------------//
 
 //-------------Will cause error------------//
+// Reference: https://www.youtube.com/watch?v=gv9ugDJ1ynU
 // import React, { useRef, useState, useEffect } from "react";
 
 // export default function Button() {
@@ -88,16 +96,16 @@
 // }
 
 //--------------------Custom Hooks------------------//
-import React from "react";
-import { useToggle } from "./useToggle";
+// import React from "react";
+// import { useToggle } from "./useToggle";
 
-export default function Button() {
-  const [open, toggle] = useToggle(false);
+// export default function Button() {
+//   const [open, toggle] = useToggle(false);
 
-  return (
-    <>
-      {open && <input />}
-      <button onClick={toggle}>Toggle input</button>
-    </>
-  );
-}
+//   return (
+//     <>
+//       {open && <input />}
+//       <button onClick={toggle}>Toggle input</button>
+//     </>
+//   );
+// }
